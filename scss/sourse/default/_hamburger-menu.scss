@@ -1,0 +1,108 @@
+.hamburger-wrap {
+  @include positionElement(auto, auto, 30px, 60px, right, top, 4);
+  grid-column: 10/ span 3;
+  text-align: right;
+  color: $whiteColor;
+}
+
+.hamburger {
+  text-transform: uppercase;
+  font-size: $standartSizePlus;
+  cursor: pointer;
+
+  em {
+    display: inline-block;
+    width: 0px;
+    height: 1px;
+    background: $whiteColor;
+    margin-left: 15px;
+    transition: ease-out 0.25s;
+  }
+
+  i {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    @include bgImageEl("../images/plus-white.png", cover);
+    margin: 0 15px;
+    transition: ease-out 0.25s;
+  }
+
+  em,
+  span,
+  i {
+    vertical-align: middle;
+  }
+
+
+  &.active {
+    em {
+      width: 90px;
+    }
+
+    i {
+      transform: rotate(45deg);
+    }
+
+  }
+
+}
+
+.hamburger-container {
+  @include positionElement(100%, 100%, 0, 0, left, top, 0, flex);
+  background: $blackColor;
+
+  transition: ease-out 0.5s;
+  opacity: 0;
+  visibility: hidden;
+
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    z-index: 3;
+  }
+}
+
+
+.hamburger-menu {
+  color: $whiteColor;
+  height: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  // background: transparentize($blackColor, 0.7);
+
+  a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "bold";
+    font-size: $largeSize;
+    opacity: 0.4;
+    transition: ease-out 0.25s;
+
+    &.active,
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.menu-img {
+  @include positionElement(100%, 100%, 0, 0);
+
+  object-fit: cover;
+  visibility: hidden;
+  opacity: 0;
+  transition: ease-out 0.25s;
+
+  &.active {
+    visibility: visible;
+    opacity: 0.6;
+  }
+}
