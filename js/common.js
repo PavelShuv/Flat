@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+  console.log("test");
   var owlSlider = $('.slider-owl');
 
   var paginationObj = $('.pagination');
